@@ -7,7 +7,7 @@
 Summary:	Web framework and asynchronous networking library
 Name:		python-%{module}
 Version:	3.1.1
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/t/tornado/%{module}-%{version}.tar.gz
