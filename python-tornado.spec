@@ -53,30 +53,27 @@ require a long-lived connection to each user.
 # fix #!/usr/bin/env python -> #!/usr/bin/python:
 #%{__sed} -i -e '1s,^#!.*python,#!%{__python},' %{name}.py
 
-%if %{with python3}
-rm -rf build-3
-set -- *
-install -d build-3
-cp -a "$@" build-3
-find build-3 -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
+%build
+%py_build
+
+%if %{with tests}
+cd build-2/lib
+%{__python} -m tornado.test.runtests
+cd ../..
 %endif
 
-%build
-%{__python} setup.py build --build-base build-2
-%{?with_tests:%{__python} setup.py test}
-
 %if %{with python3}
-%{__python3} setup.py build --build-base build-3
-%{?with_tests:%{__python3} setup.py test}
+%py3_build %{?with_tests:test}
+%if %{with tests}
+cd build-3/lib
+%{__python3} -m tornado.test.runtests
+cd ../..
+%endif
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py \
-	build --build-base build-2 \
-	install \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
+%py_install
 
 %{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/ca-certificates.crt
 ln -sf /etc/certs/ca-certificates.crt $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/ca-certificates.crt
@@ -86,11 +83,7 @@ ln -sf /etc/certs/ca-certificates.crt $RPM_BUILD_ROOT%{py_sitescriptdir}/%{modul
 %py_postclean
 
 %if %{with python3}
-%{__python3} setup.py \
-	build --build-base build-3 \
-	install \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
+%py3_install
 
 %{__rm} $RPM_BUILD_ROOT%{py3_sitescriptdir}/%{module}/ca-certificates.crt
 ln -sf /etc/certs/ca-certificates.crt $RPM_BUILD_ROOT%{py3_sitescriptdir}/%{module}/ca-certificates.crt
