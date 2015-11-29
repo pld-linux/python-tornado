@@ -15,7 +15,7 @@ Source0:	https://pypi.python.org/packages/source/t/tornado/%{module}-%{version}.
 URL:		http://www.tornadoweb.org/
 BuildRequires:	python-distribute
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	sed >= 4.0
 %if %{with python3}
 BuildRequires:	python3-devel
