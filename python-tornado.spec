@@ -8,13 +8,14 @@
 Summary:	Web framework and asynchronous networking library
 Summary(pl.UTF-8):	Szkielet WWW i asynchroniczna biblioteka sieciowa
 Name:		python-%{module}
-Version:	4.3
-Release:	2
+Version:	4.4.2
+Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/tornado/
-Source0:	https://pypi.python.org/packages/source/t/tornado/%{module}-%{version}.tar.gz
-# Source0-md5:	d13a99dc0b60ba69f5f8ec1235e5b232
+#Source0:	https://pypi.python.org/packages/source/t/tornado/%{module}-%{version}.tar.gz
+Source0:	https://github.com/tornadoweb/tornado/archive/v%{version}.tar.gz
+# Source0-md5:	cecd70dc9a8ad91dd4986bee01e00aa3
 URL:		http://www.tornadoweb.org/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
