@@ -13,7 +13,7 @@ Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/tornado/
-#Source0:	https://pypi.python.org/packages/source/t/tornado/%{module}-%{version}.tar.gz
+#Source0:	https://files.pythonhosted.org/packages/source/t/tornado/%{module}-%{version}.tar.gz
 Source0:	https://github.com/tornadoweb/tornado/archive/v%{version}.tar.gz
 # Source0-md5:	cecd70dc9a8ad91dd4986bee01e00aa3
 URL:		http://www.tornadoweb.org/
