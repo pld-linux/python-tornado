@@ -29,6 +29,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python-backports-ssl_match_hostname
 BuildRequires:	python-backports_abc >= 0.4
 BuildRequires:	python-certifi
+BuildRequires:	python-futures
 BuildRequires:	python-singledispatch
 # SO_REUSEPORT option
 BuildRequires:	uname(release) >= 3.9
