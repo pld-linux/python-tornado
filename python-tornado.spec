@@ -9,21 +9,21 @@
 Summary:	Web framework and asynchronous networking library
 Summary(pl.UTF-8):	Szkielet WWW i asynchroniczna biblioteka sieciowa
 Name:		python-%{module}
-Version:	5.1
+Version:	5.1.1
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
-#Source0Download: https://pypi.python.org/simple/tornado/
+#Source0Download: https://pypi.org/simple/tornado/
 Source0:	https://files.pythonhosted.org/packages/source/t/tornado/%{module}-%{version}.tar.gz
-# Source0-md5:	bd264851c409f926d1dae1ad5055d28d
+# Source0-md5:	a1ce4f392d30ff0ebcb255150d89b826
 #Source0:	https://github.com/tornadoweb/tornado/archive/v%{version}.tar.gz
 URL:		http://www.tornadoweb.org/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
 %if %{with python2}
-BuildRequires:	python-devel >= 1:2.7
-BuildRequires:	python-modules >= 1:2.7
+BuildRequires:	python-devel >= 1:2.7.9
+BuildRequires:	python-modules >= 1:2.7.9
 BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-backports-ssl_match_hostname
@@ -53,7 +53,7 @@ BuildRequires:	uname(release) >= 3.9
 %if %{with doc}
 BuildRequires:	sphinx-pdg
 %endif
-Requires:	python-modules >= 1:2.7
+Requires:	python-modules >= 1:2.7.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
