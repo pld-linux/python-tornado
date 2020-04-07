@@ -1,14 +1,16 @@
+# NOTE: for versions >= 6 (for python 3.5+) see python3-tornado.spec
 #
 # Conditional build:
 %bcond_without	doc	# Sphinx documentation
 %bcond_with	tests	# tornado tests [use network]
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module
 
 %define		module	tornado
 Summary:	Web framework and asynchronous networking library
 Summary(pl.UTF-8):	Szkielet WWW i asynchroniczna biblioteka sieciowa
 Name:		python-%{module}
+# keep 5.x here for python2 support
 Version:	5.1.1
 Release:	2
 License:	Apache v2.0
