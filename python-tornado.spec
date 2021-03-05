@@ -12,7 +12,7 @@ Summary(pl.UTF-8):	Szkielet WWW i asynchroniczna biblioteka sieciowa
 Name:		python-%{module}
 # keep 5.x here for python2 support
 Version:	5.1.1
-Release:	3
+Release:	4
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tornado/
@@ -110,6 +110,21 @@ Dokumentacja API modułu Pythona tornado.
 
 # non-Linux
 %{__rm} tornado/platform/{kqueue,windows}.py
+
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/env\s+python2(\s|$),#!%{__python}\1,' -e '1s,#!\s*/usr/bin/env\s+python(\s|$),#!%{__python}\1,' -e '1s,#!\s*/usr/bin/python(\s|$),#!%{__python}\1,' \
+      demos/file_upload/file_receiver.py \
+      demos/file_upload/file_uploader.py \
+      demos/helloworld/helloworld.py \
+      demos/tcpecho/client.py \
+      demos/tcpecho/server.py \
+      demos/twitter/twitterdemo.py \
+      demos/websocket/chatdemo.py
+
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/env\s+python3(\s|$),#!%{__python3}\1,' \
+      demos/blog/blog.py \
+      demos/chat/chatdemo.py \
+      demos/facebook/facebook.py \
+      demos/webspider/webspider.py
 
 %build
 %if %{with python2}
