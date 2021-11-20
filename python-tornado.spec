@@ -12,7 +12,7 @@ Summary(pl.UTF-8):	Szkielet WWW i asynchroniczna biblioteka sieciowa
 Name:		python-%{module}
 # keep 5.x here for python2 support
 Version:	5.1.1
-Release:	4
+Release:	5
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tornado/
